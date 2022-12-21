@@ -1,8 +1,10 @@
-function Main(){
-    return(
-        <div>
-        <h1>Main</h1>
-</div>
+import AddPostField from "../../components/AddPostField";
+
+function Main() {
+    return (
+        <div className="p-2 d-xl-flex justify-content-center ">
+            <AddPostField/>
+        </div>
     )
 }
 

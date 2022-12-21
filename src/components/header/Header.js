@@ -39,10 +39,12 @@ function Header() {
                     <Button
                         onClick={() => navigate('/login')} variant="outline-success">Log in</Button>
 
+                    <a href='/profile'>
                     <img
                         src="https://sun9-18.userapi.com/impg/sWsDbdTZDArFG8IFYSrYtZPnC567A7ER8d7Rrw/L0zbURtLvJs.jpg?size=1440x2160&quality=95&sign=197b07a42c704a9069aebcb78fa69df6&type=album"
                         alt="avatar" className="avatar"/>
-                </Navbar.Collapse>
+                    </a>
+                    </Navbar.Collapse>
             </Container>
         </Navbar>
     );
