@@ -16,7 +16,7 @@ export default function MyComponent() {
     const onPointerMove = (value: number, index: number) => console.log(value, index)
 
     return (
-        <div className='App'>
+        <div className='App mb-3'>
             <Rating
                 iconsCount={10}
                 onClick={handleRating}
