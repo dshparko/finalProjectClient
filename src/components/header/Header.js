@@ -1,10 +1,11 @@
-import {Button, Container, Form, Nav, Navbar, NavDropdown} from "react-bootstrap";
-import Login from "../../pages/login/Login";
+import {Button, Container, Form, Nav, Navbar} from "react-bootstrap";
 import {useNavigate} from "react-router-dom";
 
 
-function Header() {
-
+function Header({user}) {
+    const logout = () => {
+        window.open("http://localhost:5000/auth/logout", "_self");
+    };
     const navigate = useNavigate();
 
     return (
@@ -36,15 +37,25 @@ function Header() {
                         </Button>
                     </Form>
 
-                    <Button
-                        onClick={() => navigate('/login')} variant="outline-success">Log in</Button>
+                    {user ? (<>
+                            <a href='/profile'>
+                                <img
+                                    src={user.photos[0].value}
+                                    alt=""
+                                    className="avatar"
+                                />
+                            </a>
+                            <Button
+                                onClick={logout} variant="outline-success">Log out</Button>
 
-                    <a href='/profile'>
-                    <img
-                        src="https://sun9-18.userapi.com/impg/sWsDbdTZDArFG8IFYSrYtZPnC567A7ER8d7Rrw/L0zbURtLvJs.jpg?size=1440x2160&quality=95&sign=197b07a42c704a9069aebcb78fa69df6&type=album"
-                        alt="avatar" className="avatar"/>
-                    </a>
-                    </Navbar.Collapse>
+
+                        </>
+
+                    ) : (
+                        <Button
+                            onClick={() => navigate('/login')} variant="outline-success">Log in</Button>
+                    )}
+                </Navbar.Collapse>
             </Container>
         </Navbar>
     );

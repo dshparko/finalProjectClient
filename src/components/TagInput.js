@@ -9,7 +9,7 @@ function TagInput(){
             value={selected}
             onChange={setSelected}
             name="tags"
-            placeHolder="enter tags"
+            placeHolder="#"
         /></div>
     )
 }

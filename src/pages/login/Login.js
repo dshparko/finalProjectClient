@@ -1,5 +1,4 @@
 import Google from "../../components/img/google.png";
-import Facebook from "../../components/img/facebook.png";
 import Github from "../../components/img/github.png";
 import {Button} from "react-bootstrap";
 
@@ -12,38 +11,31 @@ const Login = () => {
         window.open("http://localhost:5000/auth/github", "_self");
     };
 
-    const facebook = () => {
-        window.open("http://localhost:5000/auth/facebook", "_self");
-    };
 
-    return(
+    return (
         <div className="login">
             <h1 className="loginTitle">Choose a Login Method</h1>
             <div className="wrapper">
                 <div className="left">
 
 
-                <Button onClick={google} variant="outline-success loginButton google">
-                    <img src={Google} alt="" className="icon" />
-                    Google
-                </Button>
-                    <Button onClick={facebook} variant="outline-success loginButton facebook">
-                    <img src={Facebook} alt="" className="icon" />
-                    Facebook
-                </Button>
+                    <Button onClick={google} variant="outline-success loginButton google">
+                        <img src={Google} alt="" className="icon"/>
+                        Google
+                    </Button>
                     <Button onClick={github} variant="outline-success loginButton github">
-                        <img src={Github} alt="" className="icon" />
+                        <img src={Github} alt="" className="icon"/>
                         Github
-                </Button>
+                    </Button>
 
                 </div>
                 <div className="center">
-                    <div className="line" />
+                    <div className="line"/>
                     <div className="or">OR</div>
                 </div>
                 <div className="right">
-                    <input type="text" placeholder="Username" />
-                    <input type="text" placeholder="Password" />
+                    <input type="text" placeholder="Username"/>
+                    <input type="text" placeholder="Password"/>
                     <button className="submit">Login</button>
                 </div>
             </div>
