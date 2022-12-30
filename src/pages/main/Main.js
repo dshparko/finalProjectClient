@@ -1,9 +1,11 @@
 import AddPostField from "../../components/AddPostField";
+import Post from "../../components/post/Post";
 
 function Main({user}) {
     return (
-        <div className="p-2 d-xl-flex justify-content-center ">
+        <div className="p-2  justify-content-center ">
             <AddPostField user = {user}/>
+            <Post user = {user}/>
         </div>
     )
 }

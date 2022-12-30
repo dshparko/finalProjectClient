@@ -1,6 +1,7 @@
 import DropFileInput from "./DropFileInput";
 
 export default function DragAndDrop(){
+
     const onFileChange = (files) => {
         console.log(files);
     }
@@ -9,7 +10,6 @@ export default function DragAndDrop(){
     return (
         <div className="box ">
             <DropFileInput
-                onFileChange={(files) => onFileChange(files)}
             />
         </div>
     )

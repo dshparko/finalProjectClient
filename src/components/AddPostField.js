@@ -6,12 +6,28 @@ import TagInput from "./TagInput";
 
 import RichEditor from "./RichEditor";
 import {useState} from "react";
+import {send} from "../actions/actions";
 
 function AddPostField({user}) {
-    const [ setValue] = useState("");
+
+    const [reviewTitle, setReviewTitle] = useState('')
+    const [workTitle, setWorkTitle] = useState('')
+    const [text, setText] = useState('')
+    const [teg, setTeg] = useState('')
+    const [group, setGroup] = useState('')
+    const [starCount, setStarCount] = useState('')
+
+    const [setValue] = useState("");
     const getValue = (value) => {
         setValue(value);
     };
+
+    const addPost = () => {
+        alert(reviewTitle, workTitle, text, teg, group, starCount);
+
+    }
+
+
     return (
         <>
             {
@@ -27,6 +43,8 @@ function AddPostField({user}) {
                                     />
                                     <h5 className="flex-grow-1 ms-3">
                                         <button className="btn btn-link" data-toggle="collapse"
+                                                style={{ textDecoration: "none", color: "inherit" }}
+
                                                 data-target="#collapseOne"
                                                 aria-expanded="true" aria-controls="collapseOne">
                                             Хотите добавить обзор?
@@ -38,13 +56,13 @@ function AddPostField({user}) {
                                      data-parent="#accordion">
                                     <div className="card-body d-flex flex-column bd-highlight">
                                         <Input info="Название обзора"/>
-                                        <Input info="Название произведения"/>
+                                        <Input info="Название произведения" onChange={e => setValue(e.target.value)}/>
                                         <RichEditor initialValue="" getValue={getValue}/>
-                                        <TagInput/>
+                                        <TagInput onChange={e => setValue(e.target.value)}/>
                                         <DropDown/>
                                         <DragAndDrop/>
-                                        <MyComponent/>
-                                        <button className="btn btn-success mb-3">Опубликовать</button>
+                                        <MyComponent onChange={e => setValue(e.target.value)}/>
+                                        <button className="btn btn-success mb-3" onClick={addPost}>Опубликовать</button>
                                     </div>
                                 </div>
                             </div>
