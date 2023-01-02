@@ -20,11 +20,11 @@ const Login = () => {
 
 
                     <Button onClick={google} variant="outline-success loginButton google">
-                        <img src={Google} alt="" className="icon"/>
+                        <img src={Google} alt="avatar" className="icon"/>
                         Google
                     </Button>
                     <Button onClick={github} variant="outline-success loginButton github">
-                        <img src={Github} alt="" className="icon"/>
+                        <img src={Github} alt="avatar" className="icon"/>
                         Github
                     </Button>
 

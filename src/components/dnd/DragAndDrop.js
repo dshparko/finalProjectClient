@@ -11,6 +11,7 @@ export default function DragAndDrop(){
         <div className="box ">
             <DropFileInput
             />
+
         </div>
     )
 }

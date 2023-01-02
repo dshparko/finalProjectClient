@@ -41,7 +41,7 @@ function Header({user}) {
                             <a href='/profile'>
                                 <img
                                     src={user.photos[0].value}
-                                    alt=""
+                                    alt="avatar"
                                     className="avatar"
                                 />
                             </a>
