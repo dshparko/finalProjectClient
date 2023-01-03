@@ -13,18 +13,13 @@ function AddPostField({user}) {
     const [reviewTitle, setReviewTitle] = useState('')
     const [workTitle, setWorkTitle] = useState('')
     const [text, setText] = useState('')
-    const [teg, setTeg] = useState('')
+    const [teg, setTeg] = useState([])
     const [group, setGroup] = useState('')
-    const [starCount, setStarCount] = useState('')
-
-    const [setValue] = useState("");
-    const getValue = (value) => {
-        setValue(value);
-    };
+    const [starCount, setStarCount] = useState(0)
 
     const addPost = () => {
-        alert(reviewTitle, workTitle, text, teg, group, starCount);
-
+         // alert(text);
+        send(reviewTitle,workTitle, text,teg,group,starCount);
     }
 
 
@@ -55,13 +50,13 @@ function AddPostField({user}) {
                                 <div id="collapseOne" className="collapse" aria-labelledby="headingOne"
                                      data-parent="#accordion">
                                     <div className="card-body d-flex flex-column bd-highlight">
-                                        <Input info="Название обзора"/>
-                                        <Input info="Название произведения" onChange={e => setValue(e.target.value)}/>
-                                        <RichEditor initialValue="" getValue={getValue}/>
-                                        <TagInput onChange={e => setValue(e.target.value)}/>
-                                        <DropDown/>
+                                        <Input info="Название обзора" reviewTitle={reviewTitle} setReviewTitle={setReviewTitle}/>
+                                        <Input info="Название произведения" reviewTitle={workTitle} setReviewTitle={setWorkTitle}/>
+                                        <RichEditor initialValue={text} getValue={setText}/>
+                                        <TagInput selected = {teg} setSelected = {setTeg}/>
+                                        <DropDown group={group} setGroup={setGroup}/>
                                         <DragAndDrop/>
-                                        <MyComponent onChange={e => setValue(e.target.value)}/>
+                                        <MyComponent strCount ={starCount} setStarCount = {setStarCount}/>
                                         <button className="btn btn-success mb-3" onClick={addPost}>Опубликовать</button>
                                     </div>
                                 </div>

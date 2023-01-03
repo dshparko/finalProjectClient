@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { Rating } from 'react-simple-star-rating'
 
-export default function MyComponent() {
-    const [setRating] = useState(0)
+export default function MyComponent(props) {
+    const {startCount, setStarCount} = props;
 
     // Catch Rating value
     const handleRating = (rate) => {
-        setRating(rate)
+        setStarCount(rate)
 
         // other logic
     }

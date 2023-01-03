@@ -12,30 +12,6 @@ import {ImageConfig} from './ImageConfig';
 
 const DropFileInput = props => {
 
-    const [imageUpload, setImageUpload] = useState(null);
-    const [imageUrls, setImageUrls] = useState([]);
-
-    // const imagesListRef = ref(storage, "images/");
-    // const uploadFile = () => {
-    //     if (imageUpload == null) return;
-    //     const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
-    //     uploadBytes(imageRef, imageUpload).then((snapshot) => {
-    //         getDownloadURL(snapshot.ref).then((url) => {
-    //             setImageUrls((prev) => [...prev, url]);
-    //         });
-    //     });
-    // };
-
-    // useEffect(() => {
-    //     listAll(imagesListRef).then((response) => {
-    //         response.items.forEach((item) => {
-    //             getDownloadURL(item).then((url) => {
-    //                 // setImageUrls((prev) => [...prev, url]);
-    //             });
-    //         });
-    //     });
-    // }, []);
-
     const wrapperRef = useRef(null);
 
     const [fileList, setFileList] = useState([]);
@@ -56,11 +32,7 @@ const DropFileInput = props => {
         if (newFile) {
             //   console.log(newFile);
             const imageRef = ref(storage, `images/${newFile.name}`);
-            uploadBytes(imageRef, newFile).then((snapshot) => {
-                getDownloadURL(snapshot.ref).then((url) => {
-                    setImageUrls((prev) => [...prev, url]);
-                });
-            });
+            uploadBytes(imageRef, newFile);
             const updatedList = [...fileList, newFile];
             setFileList(updatedList);
             props.onFileChange(updatedList);
@@ -124,33 +96,6 @@ const DropFileInput = props => {
                 ) : null
             }
         </>
-
-
-        // <div className="App">
-        //     <input
-        //         type="file"
-        //         onChange={(event) => {
-        //             setImageUpload(event.target.files[0]);
-        //         }}
-        //     />
-        //     <button onClick={uploadFile}> Upload Image</button>
-        //     {imageUrls.map((url) => {
-        //         return <img src={url} />;
-        //     })}
-        // </div>
-
-        //
-        // <section className="container">
-        //     <div {...getRootProps({style})}>
-        //         <input {...getInputProps()} />
-        //         <p>Drag 'n' drop some files here, or click to select files</p>
-        //     </div>
-        //     <aside>
-        //         <h4>Files</h4>
-        //         <ul>{files}</ul>
-        //     </aside>
-        // </section>
-
     );
 }
 

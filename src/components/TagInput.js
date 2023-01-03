@@ -1,7 +1,8 @@
 import { TagsInput } from "react-tag-input-component";
 import {useState} from "react";
-function TagInput(){
-    const [selected, setSelected] = useState([]);
+function TagInput(props){
+
+    const {selected, setSelected}=props;
 
     return (
         <div className="mb-3">
