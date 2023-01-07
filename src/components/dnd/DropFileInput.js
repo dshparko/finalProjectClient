@@ -1,16 +1,16 @@
-import React, {useRef, useState, useEffect, useMemo} from 'react';
+import React, {useRef, useState} from 'react';
 import PropTypes from 'prop-types';
 import {
     ref,
     uploadBytes,
-    getDownloadURL,
     deleteObject
 } from "firebase/storage";
 import {storage} from "../../firebase";
-import {v4} from "uuid";
 import {ImageConfig} from './ImageConfig';
 
 const DropFileInput = props => {
+
+    const {imgUrl, setImgUrl} = props;
 
     const wrapperRef = useRef(null);
 
@@ -33,7 +33,10 @@ const DropFileInput = props => {
             //   console.log(newFile);
             const imageRef = ref(storage, `images/${newFile.name}`);
             uploadBytes(imageRef, newFile);
+
+            setImgUrl(`images/${newFile.name}`);
             const updatedList = [...fileList, newFile];
+
             setFileList(updatedList);
             props.onFileChange(updatedList);
         }
@@ -45,9 +48,7 @@ const DropFileInput = props => {
 // Delete the file
         deleteObject(desertRef).then(() => {
             console.log('Success!')
-            // File deleted successfully
         }).catch((error) => {
-            // Uh-oh, an error occurred!
             console.log('Bad!')
 
         });

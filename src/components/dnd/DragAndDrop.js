@@ -1,17 +1,12 @@
 import DropFileInput from "./DropFileInput";
 
-export default function DragAndDrop(){
+export default function DragAndDrop(props) {
 
-    const onFileChange = (files) => {
-        console.log(files);
-    }
-
+    const {imgUrl, setImgUrl} = props;
 
     return (
         <div className="box ">
-            <DropFileInput
-            />
-
+            <DropFileInput imgUrl={imgUrl} setImgUrl={setImgUrl}/>
         </div>
     )
 }

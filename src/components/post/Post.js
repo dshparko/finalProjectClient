@@ -1,9 +1,38 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import Heart from "react-animated-heart";
 import Comment from "../Comment";
 import Carousel from "../carousel/Carousel";
+import Text from "../../Text";
+import {
+    getDownloadURL,
+    listAll,
+    ref,
+    uploadBytes,
+    deleteObject
+} from "firebase/storage";
+import {storage} from "../../firebase";
+function Post(props) {
 
-function Post({user}) {
+    const {user, item} = props;
+
+
+    const [imageUrl, setImageUrl] = useState('');
+
+    async  function getLink  (){
+        const pathReference =storage().ref(item.imgUrl);
+// TODO: add error handling
+       const url  = await pathReference.getDownloadURL();
+       return url;
+    }
+    getDownloadURL(ref(storage, item.imgUrl))
+    const imageRef = ref(storage, item.imgUrl);
+    useEffect(() => {
+        listAll(imageRef).then((response) => {
+                getDownloadURL(imageRef).then((url) => {
+                    setImageUrl(url);
+            });
+        });
+    }, []);
 
     const [isClick, setClick] = useState(false);
     return (
@@ -20,34 +49,39 @@ function Post({user}) {
                                 />
                             </a></>) : (<img
                                 src="https://sun9-18.userapi.com/impg/sWsDbdTZDArFG8IFYSrYtZPnC567A7ER8d7Rrw/L0zbURtLvJs.jpg?size=1440x2160&quality=95&sign=197b07a42c704a9069aebcb78fa69df6&type=album"
-                                alt=""/>
+                                alt=""
+                                className="avatar"/>
                         )}
 
                         <div className="details">
 
-                            {user ? (<span className="name">{user.displayName}</span>
-                                ):(<span className="name">Dasha</span>
-                            )}
-                            <span className="date">30.12.2022, 20:47:36</span>
+                            <span className="name">{item.userName}</span>
+
+                            <span className="date">{item.time}</span>
                         </div>
                     </div>
-                    {/*<MoreHorizIcon />*/}
+                    <Heart isClick={isClick} onClick={() => setClick(!isClick)}/>
                 </div>
                 <div className="content">
 
-                    <Carousel/>
+                    {/*<Carousel/>*/}
+                    {/*<h1>{imageUrl}</h1>*/}
                     <img
-                        src="https://sun9-18.userapi.com/impg/sWsDbdTZDArFG8IFYSrYtZPnC567A7ER8d7Rrw/L0zbURtLvJs.jpg?size=1440x2160&quality=95&sign=197b07a42c704a9069aebcb78fa69df6&type=album"
-                        alt=""/>
+                        src={imageUrl}
+                        alt=""
+                        //className="avatar"
+                    />
                     <div class="d-flex flex-row justify-content-xl-between justify-content-center">
-                        <h1>Title</h1>
-                        <Heart isClick={isClick} onClick={() => setClick(!isClick)}/>
+                        <h1>{item.reviewTitle}</h1>
+                        {/*<Heart isClick={isClick} onClick={() => setClick(!isClick)}/>*/}
 
                     </div>
+                    <h2>{item.workTitle}</h2>
 
-                    <h2>Group</h2>
-                    <p>text</p>
-                 </div>
+                    <h2>{item.group}</h2>
+                    <div>
+                        <Text props={item.text}/></div>
+                </div>
                 <div className="info">
 
                     <div className="item">
@@ -58,7 +92,7 @@ function Post({user}) {
                 </div>
                 {/*{commentOpen && <Comments />}*/}
             </div>
-            {user ? (<Comment user ={user}/>):(<></>)}
+            {user ? (<Comment user={user}/>) : (<></>)}
         </div>
     )
 }

@@ -16,10 +16,12 @@ function AddPostField({user}) {
     const [teg, setTeg] = useState([])
     const [group, setGroup] = useState('')
     const [starCount, setStarCount] = useState(0)
+    const [imgUrl, setImgUrl] = useState('');
 
     const addPost = () => {
-         // alert(text);
-        send(reviewTitle,workTitle, text,teg,group,starCount);
+
+        const time = (new Date()).toLocaleString();
+        send(user.displayName, time,reviewTitle, workTitle, text, teg, group, starCount, imgUrl);
     }
 
 
@@ -38,7 +40,7 @@ function AddPostField({user}) {
                                     />
                                     <h5 className="flex-grow-1 ms-3">
                                         <button className="btn btn-link" data-toggle="collapse"
-                                                style={{ textDecoration: "none", color: "inherit" }}
+                                                style={{textDecoration: "none", color: "inherit"}}
 
                                                 data-target="#collapseOne"
                                                 aria-expanded="true" aria-controls="collapseOne">
@@ -50,13 +52,15 @@ function AddPostField({user}) {
                                 <div id="collapseOne" className="collapse" aria-labelledby="headingOne"
                                      data-parent="#accordion">
                                     <div className="card-body d-flex flex-column bd-highlight">
-                                        <Input info="Название обзора" reviewTitle={reviewTitle} setReviewTitle={setReviewTitle}/>
-                                        <Input info="Название произведения" reviewTitle={workTitle} setReviewTitle={setWorkTitle}/>
+                                        <Input info="Название обзора" reviewTitle={reviewTitle}
+                                               setReviewTitle={setReviewTitle}/>
+                                        <Input info="Название произведения" reviewTitle={workTitle}
+                                               setReviewTitle={setWorkTitle}/>
                                         <RichEditor initialValue={text} getValue={setText}/>
-                                        <TagInput selected = {teg} setSelected = {setTeg}/>
+                                        <TagInput selected={teg} setSelected={setTeg}/>
                                         <DropDown group={group} setGroup={setGroup}/>
-                                        <DragAndDrop/>
-                                        <MyComponent strCount ={starCount} setStarCount = {setStarCount}/>
+                                        <DragAndDrop imgUrl={imgUrl} setImgUrl={setImgUrl}/>
+                                        <MyComponent strCount={starCount} setStarCount={setStarCount}/>
                                         <button className="btn btn-success mb-3" onClick={addPost}>Опубликовать</button>
                                     </div>
                                 </div>
