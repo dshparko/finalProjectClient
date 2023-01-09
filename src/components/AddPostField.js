@@ -7,22 +7,10 @@ import TagInput from "./TagInput";
 import RichEditor from "./RichEditor";
 import {useState} from "react";
 import {send} from "../actions/actions";
+import Edit from "./Edit";
 
 function AddPostField({user}) {
 
-    const [reviewTitle, setReviewTitle] = useState('')
-    const [workTitle, setWorkTitle] = useState('')
-    const [text, setText] = useState('')
-    const [teg, setTeg] = useState([])
-    const [group, setGroup] = useState('')
-    const [starCount, setStarCount] = useState(0)
-    const [imgUrl, setImgUrl] = useState('');
-
-    const addPost = () => {
-
-        const time = (new Date()).toLocaleString();
-        send(user.displayName, time,reviewTitle, workTitle, text, teg, group, starCount, imgUrl);
-    }
 
 
     return (
@@ -51,18 +39,7 @@ function AddPostField({user}) {
 
                                 <div id="collapseOne" className="collapse" aria-labelledby="headingOne"
                                      data-parent="#accordion">
-                                    <div className="card-body d-flex flex-column bd-highlight">
-                                        <Input info="Название обзора" reviewTitle={reviewTitle}
-                                               setReviewTitle={setReviewTitle}/>
-                                        <Input info="Название произведения" reviewTitle={workTitle}
-                                               setReviewTitle={setWorkTitle}/>
-                                        <RichEditor initialValue={text} getValue={setText}/>
-                                        <TagInput selected={teg} setSelected={setTeg}/>
-                                        <DropDown group={group} setGroup={setGroup}/>
-                                        <DragAndDrop imgUrl={imgUrl} setImgUrl={setImgUrl}/>
-                                        <MyComponent strCount={starCount} setStarCount={setStarCount}/>
-                                        <button className="btn btn-success mb-3" onClick={addPost}>Опубликовать</button>
-                                    </div>
+                                   <Edit user={user}/>
                                 </div>
                             </div>
                         </div>

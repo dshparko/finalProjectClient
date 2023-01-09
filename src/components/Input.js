@@ -1,10 +1,9 @@
-
 function Input(props){
 
     const { info,reviewTitle, setReviewTitle} = props;
     return (
         <form className="form-floating mb-3">
-            <input type="text" className="form-control" value={reviewTitle || ""} onChange={(event)=>setReviewTitle(event.target.value)}  id="f"/>
+            <input type="text" className="form-control" value={reviewTitle || ""} onChange={(event)=>setReviewTitle(event.target.value)}  />
                 <label htmlFor="floatingInputValue">{info}</label>
         </form>
     )
