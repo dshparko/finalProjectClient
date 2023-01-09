@@ -1,0 +1,23 @@
+{
+  "Log In": "Войти",
+  "Registeration": "Зарегистрироваться",
+  "Log out": "Выйти",
+  "change to": "изменить на",
+  "Your Email": "Ваш Email",
+  "Password": "Пароль",
+  "Your Password": "Ваш Пароль",
+  "Search by title": "Искать по названию",
+  "Recent tags": "Недавние теги",
+  "Sort by": "Сортировать по",
+  "Rate authors": "Оценка автора",
+  "Description": "Описание",
+  "Tags": "Теги",
+  "Category": "Категория",
+  "Your Comment": "Ваш комментрарий",
+  "Send": "Отправить",
+  "notRegisteredComment": "Зарегистрируйтесь или войдите для того что бы оставить комментарий",
+  "Drag and Drop image": "Перетащите и отпустите картинку",
+  "Blocked" : "Вы заблокированны и не можете писать посты",
+  "Your posts": "Ваши посты",
+  "loading": "Загрузка"
+}
