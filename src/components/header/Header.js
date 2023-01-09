@@ -10,7 +10,7 @@ import useLocalStorage from 'use-local-storage'
 function Header(props) {
     const {user,onDark} = props;
     const logout = () => {
-        window.open("https://final-project-server-rosy.vercel.app//auth/logout", "_self");
+        window.open("https://final-project-server-rosy.vercel.app/auth/logout", "_self");
     };
     const navigate = useNavigate();
     const [isDarkMode, setIsDarkMode] = useState(false);

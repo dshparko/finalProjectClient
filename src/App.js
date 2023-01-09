@@ -19,7 +19,7 @@ function App() {
     const getAll = async () => {
         try {
             let arr = []
-            const res = await axios.get(`https://final-project-server-rosy.vercel.app//auth/allmessages`)
+            const res = await axios.get(`https://final-project-server-rosy.vercel.app/auth/allmessages`)
 
             arr.unshift(res.data)
             setData(...arr)
@@ -33,7 +33,7 @@ function App() {
     const getAllTags = async () => {
         try {
             let arr = []
-            const res = await axios.get(`https://final-project-server-rosy.vercel.app//auth/allTags`)
+            const res = await axios.get(`https://final-project-server-rosy.vercel.app/auth/allTags`)
 
             arr.unshift(res.data)
             setTag(...arr)

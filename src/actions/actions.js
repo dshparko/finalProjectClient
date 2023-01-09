@@ -13,7 +13,7 @@ export const send = async ( userName,time, reviewTitle, workTitle, text, teg, gr
 
 export const sendComment = async ( userName, time, text) => {
     try {
-        const response = await axios.post(`https://final-project-server-rosy.vercel.app//auth/sendComment`, {
+        const response = await axios.post(`https:/final-project-server-rosy.vercel.app//auth/sendComment`, {
             userName,time,text
         })
         alert(response.data.message)
@@ -35,7 +35,7 @@ export const likePost = async (id, username) => {
 
 export const dislikePost = async (id, username) => {
     try {
-        await axios.patch(`https://final-project-server-rosy.vercel.app//auth/likepost/${id}`, {
+        await axios.patch(`https://final-project-server-rosy.vercel.app/auth/likepost/${id}`, {
             username
         })
     } catch (e) {
@@ -45,7 +45,7 @@ export const dislikePost = async (id, username) => {
 
 export const rateWork = async (id, username) => {
     try {
-        await axios.patch(`https://final-project-server-rosy.vercel.app//auth/likepost/${id}`, {
+        await axios.patch(`https://final-project-server-rosy.vercel.app/auth/likepost/${id}`, {
             username
         })
     } catch (e) {
