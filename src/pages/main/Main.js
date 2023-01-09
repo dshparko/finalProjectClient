@@ -25,7 +25,7 @@ function Main(props) {
     const send = async () => {
         try {
             let arr = []
-            const res = await axios.get(`http://localhost:5000/auth/search/${workTitle}`)
+            const res = await axios.get(`https://final-project-server-rosy.vercel.app//auth/search/${workTitle}`)
 
             setWorkTitle('')
             arr.unshift(res.data)
@@ -48,7 +48,7 @@ function Main(props) {
             let arr = []
             setTags(item)
             alert(item)
-            const res = await axios.get(`http://localhost:5000/auth/searchTag/${item}`)
+            const res = await axios.get(`https://final-project-server-rosy.vercel.app//auth/searchTag/${item}`)
 
             arr.unshift(res.data)
             setSearchTag(...arr)
