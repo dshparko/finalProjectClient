@@ -4,11 +4,11 @@ import {Button} from "react-bootstrap";
 
 const Login = () => {
     const google = () => {
-        window.open("https://final-project-server-rosy.vercel.app/auth/google", "_self");
+        window.open("finalprojectserver-production.up.railway.app/auth/google", "_self");
     };
 
     const github = () => {
-        window.open("https://final-project-server-rosy.vercel.app/auth/github", "_self");
+        window.open("finalprojectserver-production.up.railway.app/auth/github", "_self");
     };
 
 

@@ -11,7 +11,7 @@ function Profile({user}){
     const getAllPosts = async () => {
         try {
             let arr = []
-            const res = await axios.get(`https://final-project-server-rosy.vercel.app/auth/allposts/${user.displayName}`)
+            const res = await axios.get(`finalprojectserver-production.up.railway.app/auth/allposts/${user.displayName}`)
 
             arr.unshift(res.data)
             setData(...arr)
