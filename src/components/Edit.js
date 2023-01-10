@@ -27,7 +27,7 @@ export default function Edit ({user}){
     // useEffect(() => {
     //     const getReviewById = async () => {
     //         try {
-    //             const response = await axios.get(`finalprojectserver-production.up.railway.app//auth/reviews/${id}`);
+    //             const response = await axios.get(`https://final-project-server-rosy.vercel.app//auth/reviews/${id}`);
     //             setReviewTitle(response.data.title);
     //             setWorkTitle(response.data.workTitle);
     //             setGroup(response.data.group);

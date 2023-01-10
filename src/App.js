@@ -19,7 +19,7 @@ function App() {
     const getAll = async () => {
         try {
             let arr = []
-            const res = await axios.get(`finalprojectserver-production.up.railway.app/auth/allmessages`)
+            const res = await axios.get(`https://final-project-server-rosy.vercel.app/auth/allmessages`)
 
             arr.unshift(res.data)
             setData(...arr)
@@ -33,7 +33,7 @@ function App() {
     const getAllTags = async () => {
         try {
             let arr = []
-            const res = await axios.get(`finalprojectserver-production.up.railway.app/auth/allTags`)
+            const res = await axios.get(`https://final-project-server-rosy.vercel.app/auth/allTags`)
 
             arr.unshift(res.data)
             setTag(...arr)
@@ -76,7 +76,7 @@ function App() {
     })
     useEffect(() => {
         const getUser = () => {
-            fetch("finalprojectserver-production.up.railway.app//auth/login/success", {
+            fetch("https://final-project-server-rosy.vercel.app//auth/login/success", {
                 method: "GET",
                 credentials: "include",
                 headers: {
